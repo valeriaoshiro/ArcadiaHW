@@ -2,3 +2,8 @@
 
 node_modules/
 package-lock.json
+.cach/
+dist/
+coverage/
+.vscode/
+.env
