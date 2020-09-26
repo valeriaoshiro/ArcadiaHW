@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ContactContext from "./../context/ContactContext";
 
 const Home = () => {
-  const { contacts } = useContext(ContactContext);
+  const { contacts, removeContact } = useContext(ContactContext);
 
   return (
     <div>
@@ -14,6 +14,7 @@ const Home = () => {
             <li key={contact.id}>
               {contact.name} | {contact.phone} | {contact.email}
               <Link to={`/edit/${contact.id}`}>Edit</Link>
+              <button onClick={() => removeContact(contact.id)}>Delete</button>
             </li>
           ))}
       </ul>

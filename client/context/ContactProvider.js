@@ -5,6 +5,12 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INITIAL_VALUE":
       return { contacts: [...action.payload] };
+    case "REMOVE_CONTACT":
+      return {
+        contacts: state.contacts.filter(
+          (contact) => contact.id !== action.payload
+        ),
+      };
     default:
       return state;
   }
@@ -12,6 +18,14 @@ const reducer = (state, action) => {
 
 export const ContactProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {});
+
+  //Actions
+  const removeContact = (id) => {
+    dispatch({
+      type: "REMOVE_CONTACT",
+      payload: id,
+    });
+  };
 
   useEffect(() => {
     const getContacts = async () => {
@@ -23,7 +37,9 @@ export const ContactProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContactContext.Provider value={{ contacts: state.contacts }}>
+    <ContactContext.Provider
+      value={{ contacts: state.contacts, removeContact }}
+    >
       {children}
     </ContactContext.Provider>
   );
