@@ -20,5 +20,8 @@
   },
   "scripts": {
     "dev": "parcel client/index.html"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }

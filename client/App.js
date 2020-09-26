@@ -4,20 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import AddContact from "./components/AddContact";
 import EditContact from "./components/EditContact";
-import ContactContext from "./context/ContactContext";
+import { ContactProvider } from "./context/ContactProvider";
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/contacts")
-      .then((response) => response.json())
-      .then((response) => setContacts(response));
-  }, [contacts]);
-
   return (
     <div>
-      <ContactContext.Provider value={contacts}>
+      <ContactProvider>
         <header>Contact Management</header>
         <Router>
           <Switch>
@@ -26,7 +18,7 @@ const App = () => {
             <Route path="/" component={Home} />
           </Switch>
         </Router>
-      </ContactContext.Provider>
+      </ContactProvider>
     </div>
   );
 };
