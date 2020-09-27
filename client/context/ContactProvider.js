@@ -15,6 +15,17 @@ const reducer = (state, action) => {
       return {
         contacts: [...state.contacts, action.payload],
       };
+    case "EDIT_CONTACT":
+      const updatedContact = action.payload;
+
+      let updatedContacts = state.contacts.map((contact) => {
+        if (contact.id === updatedContact.id) return updatedContact;
+        return contact;
+      });
+
+      return {
+        contacts: updatedContacts,
+      };
     default:
       return state;
   }
@@ -47,9 +58,21 @@ export const ContactProvider = ({ children }) => {
     });
   };
 
+  const editContact = (contact) => {
+    dispatch({
+      type: "EDIT_CONTACT",
+      payload: contact,
+    });
+  };
+
   return (
     <ContactContext.Provider
-      value={{ contacts: state.contacts, removeContact, addContact }}
+      value={{
+        contacts: state.contacts,
+        removeContact,
+        addContact,
+        editContact,
+      }}
     >
       {children}
     </ContactContext.Provider>
