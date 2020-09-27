@@ -11,6 +11,10 @@ const reducer = (state, action) => {
           (contact) => contact.id !== action.payload
         ),
       };
+    case "ADD_CONTACT":
+      return {
+        contacts: [...state.contacts, action.payload],
+      };
     default:
       return state;
   }
@@ -18,14 +22,6 @@ const reducer = (state, action) => {
 
 export const ContactProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {});
-
-  //Actions
-  const removeContact = (id) => {
-    dispatch({
-      type: "REMOVE_CONTACT",
-      payload: id,
-    });
-  };
 
   useEffect(() => {
     const getContacts = async () => {
@@ -36,9 +32,24 @@ export const ContactProvider = ({ children }) => {
     getContacts();
   }, []);
 
+  //Actions
+  const removeContact = (id) => {
+    dispatch({
+      type: "REMOVE_CONTACT",
+      payload: id,
+    });
+  };
+
+  const addContact = (contact) => {
+    dispatch({
+      type: "ADD_CONTACT",
+      payload: contact,
+    });
+  };
+
   return (
     <ContactContext.Provider
-      value={{ contacts: state.contacts, removeContact }}
+      value={{ contacts: state.contacts, removeContact, addContact }}
     >
       {children}
     </ContactContext.Provider>
