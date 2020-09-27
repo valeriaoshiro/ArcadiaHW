@@ -8,9 +8,9 @@ import { ContactProvider } from "./context/ContactProvider";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <ContactProvider>
-        <header>Contact Management</header>
+        <h1>Contact Management</h1>
         <Router>
           <Switch>
             <Route path="/add" component={AddContact} />
