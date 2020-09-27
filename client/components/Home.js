@@ -12,7 +12,7 @@ const Home = () => {
         {contacts &&
           contacts.map((contact) => (
             <li key={contact.id}>
-              {contact.name} | {contact.phone} | {contact.email}
+              {contact.id} | {contact.name} | {contact.phone} | {contact.email}
               <Link to={`/edit/${contact.id}`}>Edit</Link>
               <button onClick={() => removeContact(contact.id)}>Delete</button>
             </li>

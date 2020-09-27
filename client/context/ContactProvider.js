@@ -45,10 +45,22 @@ export const ContactProvider = ({ children }) => {
 
   //Actions
   const removeContact = (id) => {
-    dispatch({
-      type: "REMOVE_CONTACT",
-      payload: id,
-    });
+    fetch(`http://localhost:3001/contacts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        dispatch({
+          type: "REMOVE_CONTACT",
+          payload: id,
+        });
+      })
+      .catch((error) => {
+        throw new Error("Transaction was not successful " + error);
+      });
   };
 
   const addContact = (contact) => {
