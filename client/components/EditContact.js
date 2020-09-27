@@ -29,37 +29,47 @@ const EditContact = (props) => {
 
   return (
     <div>
-      <h1>Edit Contact</h1>
+      <h2>Edit Contact</h2>
       <form onSubmit={onSubmit}>
-        <label>
-          Name:
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             name="name"
+            className="form-control"
+            id="name"
             onChange={onChange}
             value={form.name}
           />
-        </label>
-        <label>
-          Email:
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
           <input
             type="text"
             name="email"
+            className="form-control"
+            id="email"
             onChange={onChange}
             value={form.email}
           />
-        </label>
-        <label>
-          Phone:
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone:</label>
           <input
             type="text"
             name="phone"
+            className="form-control"
+            id="phone"
             onChange={onChange}
             value={form.phone}
           />
-        </label>
-        <button type="submit">Submit</button>
-        <Link to="/">Cancel</Link>
+        </div>
+        <button type="submit" className="btn btn-outline-dark mt-3">
+          Submit
+        </button>
+        <Link to="/" className="btn btn-outline-danger mt-3 ml-3">
+          Cancel
+        </Link>
       </form>
     </div>
   );
