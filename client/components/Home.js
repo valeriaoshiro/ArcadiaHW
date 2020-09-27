@@ -11,6 +11,7 @@ const Home = () => {
         Add Contact
       </Link>
       <ul className="list-group">
+        {!contacts && <h3>No Contacts</h3>}
         {contacts &&
           contacts.map((contact) => (
             <li
