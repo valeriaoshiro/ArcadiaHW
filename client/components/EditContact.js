@@ -40,6 +40,7 @@ const EditContact = (props) => {
             id="name"
             onChange={onChange}
             value={form.name}
+            required
           />
         </div>
         <div className="form-group">
@@ -51,6 +52,7 @@ const EditContact = (props) => {
             id="email"
             onChange={onChange}
             value={form.email}
+            required
           />
         </div>
         <div className="form-group">
@@ -62,6 +64,7 @@ const EditContact = (props) => {
             id="phone"
             onChange={onChange}
             value={form.phone}
+            required
           />
         </div>
         <button type="submit" className="btn btn-outline-dark mt-3">

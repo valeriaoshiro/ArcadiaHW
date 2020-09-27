@@ -30,33 +30,36 @@ const AddContact = () => {
       <h2>Add Contact</h2>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name: </label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             name="name"
             className="form-control"
             id="name"
             onChange={onChange}
+            required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email: </label>
+          <label htmlFor="email">Email:</label>
           <input
             type="text"
             name="email"
             className="form-control"
             id="email"
             onChange={onChange}
+            required
           />
         </div>
         <div>
-          <label htmlFor="phone">Phone: </label>
+          <label htmlFor="phone">Phone:</label>
           <input
             type="text"
             name="phone"
             className="form-control"
             id="phone"
             onChange={onChange}
+            required
           />
         </div>
         <button type="submit" className="btn btn-outline-dark mt-3">
