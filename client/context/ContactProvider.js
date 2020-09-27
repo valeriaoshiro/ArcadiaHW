@@ -47,9 +47,6 @@ export const ContactProvider = ({ children }) => {
   const removeContact = (id) => {
     fetch(`http://localhost:3001/contacts/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
       .then((response) => {
         if (!response.ok) throw new Error("Network response was not ok");
@@ -87,10 +84,26 @@ export const ContactProvider = ({ children }) => {
   };
 
   const editContact = (contact) => {
-    dispatch({
-      type: "EDIT_CONTACT",
-      payload: contact,
-    });
+    fetch(`http://localhost:3001/contacts/${contact.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contact),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+      })
+      .then((data) => {
+        dispatch({
+          type: "EDIT_CONTACT",
+          payload: data,
+        });
+      })
+      .catch((error) => {
+        throw new Error("Transaction was not successful " + error);
+      });
   };
 
   return (
