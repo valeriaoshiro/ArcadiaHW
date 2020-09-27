@@ -6,7 +6,7 @@ const Home = () => {
   const { contacts, removeContact } = useContext(ContactContext);
 
   return (
-    <main>
+    <main className="pb-3">
       <Link className="btn btn-outline-dark mb-3" to={"/add"}>
         Add Contact
       </Link>
@@ -15,7 +15,7 @@ const Home = () => {
           contacts.map((contact) => (
             <li
               key={contact.id}
-              className="list-group-item d-flex justify-content-between align-items-center"
+              className="list-group-item d-flex flex-sm-row flex-column justify-content-between justify-content-start align-items-sm-center"
             >
               <section className="d-flex flex-column">
                 <span>Name: {contact.name}</span>

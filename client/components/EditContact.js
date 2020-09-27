@@ -67,10 +67,10 @@ const EditContact = (props) => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-outline-dark mt-3">
+        <button type="submit" className="btn btn-outline-dark mt-1">
           Submit
         </button>
-        <Link to="/" className="btn btn-outline-danger mt-3 ml-3">
+        <Link to="/" className="btn btn-outline-danger mt-1 ml-3">
           Cancel
         </Link>
       </form>
