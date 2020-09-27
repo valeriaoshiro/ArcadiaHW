@@ -27,22 +27,44 @@ const AddContact = () => {
 
   return (
     <div>
-      <h1>Add Contact</h1>
+      <h2>Add Contact</h2>
       <form onSubmit={onSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" onChange={onChange} />
-        </label>
-        <label>
-          Email:
-          <input type="text" name="email" onChange={onChange} />
-        </label>
-        <label>
-          Phone:
-          <input type="text" name="phone" onChange={onChange} />
-        </label>
-        <button type="submit">Submit</button>
-        <Link to="/">Cancel</Link>
+        <div className="form-group">
+          <label htmlFor="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            id="name"
+            onChange={onChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email: </label>
+          <input
+            type="text"
+            name="email"
+            className="form-control"
+            id="email"
+            onChange={onChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">Phone: </label>
+          <input
+            type="text"
+            name="phone"
+            className="form-control"
+            id="phone"
+            onChange={onChange}
+          />
+        </div>
+        <button type="submit" className="btn btn-outline-dark mt-3">
+          Submit
+        </button>
+        <Link to="/" className="btn btn-outline-danger mt-3 ml-3">
+          Cancel
+        </Link>
       </form>
     </div>
   );
