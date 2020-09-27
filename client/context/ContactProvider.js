@@ -27,7 +27,7 @@ export const ContactProvider = ({ children }) => {
         });
       })
       .catch((error) => {
-        throw new Error("Transaction was not successful " + error);
+        console.error(error);
       });
   };
 
@@ -50,7 +50,7 @@ export const ContactProvider = ({ children }) => {
         });
       })
       .catch((error) => {
-        throw new Error("Transaction was not successful " + error);
+        console.error(error);
       });
   };
 
@@ -73,7 +73,7 @@ export const ContactProvider = ({ children }) => {
         });
       })
       .catch((error) => {
-        throw new Error("Transaction was not successful " + error);
+        console.error(error);
       });
   };
 
