@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import ContactContext from "./../context/ContactContext";
 import { useHistory, Link } from "react-router-dom";
-import { v4 as uuid } from "uuid";
 
 const AddContact = () => {
   const [form, setForm] = useState({
@@ -18,7 +17,6 @@ const AddContact = () => {
 
   const onSubmit = () => {
     const newContact = {
-      id: uuid(),
       name: form.name,
       email: form.email,
       phone: form.phone,

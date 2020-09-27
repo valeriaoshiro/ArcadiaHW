@@ -52,10 +52,26 @@ export const ContactProvider = ({ children }) => {
   };
 
   const addContact = (contact) => {
-    dispatch({
-      type: "ADD_CONTACT",
-      payload: contact,
-    });
+    fetch("http://localhost:3001/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contact),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+      })
+      .then((data) => {
+        dispatch({
+          type: "ADD_CONTACT",
+          payload: data,
+        });
+      })
+      .catch((error) => {
+        throw new Error("Transaction was not successful " + error);
+      });
   };
 
   const editContact = (contact) => {
