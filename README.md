@@ -36,3 +36,7 @@
   - Dev ![Performance Dev](./assets/PerformanceDev.png)
 - Tested accesability using Dev Tool Lighthouse
   - Production and Dev ![Accessibility](./assets/Accessibility.png)
+- Future improvements:
+  - Abstract fetch logic in ContactProvider.js to make it DRY
+  - Create a form component to use in AddContact and EditContact
+  - Use Jest to create tests
