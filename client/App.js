@@ -6,6 +6,8 @@ import AddContact from "./components/AddContact";
 import EditContact from "./components/EditContact";
 import { ContactProvider } from "./context/ContactProvider";
 
+import "bootstrap/dist/css/bootstrap.css";
+
 const App = () => {
   return (
     <div className="container">
