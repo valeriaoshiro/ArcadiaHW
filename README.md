@@ -3,7 +3,7 @@
 ### Info
 
 - September 24, 2020
-- React application that shows contact information from the server. User is able to add new contacts, edit and delete existing contact.
+- React application that shows contact information from the server. The user is able to add new contacts, edit and delete existing contact.
 
 ### Setup
 
@@ -30,7 +30,7 @@
 ### Notes
 
 - I used Bootstrap because my focus wasn't on design.
-- The app is responsive for desktop and phone
+- The app is responsive for desktops and phones
 - Tested performance using Dev Tool Lighthouse
   - Production ![Performance Production](./assets/PerformanceProduction.png)
   - Dev ![Performance Dev](./assets/PerformanceDev.png)
